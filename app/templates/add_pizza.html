@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Pizza</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <style>
+  .hue-rotate-text {
+    animation: hueRotate 50s alternate infinite;
+    background: linear-gradient(100deg, red, orange, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes hueRotate {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      filter: hue-rotate(180deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+</style>
+</head>
+<body>
+    <h1 class="hue-rotate-text">Add a New Pizza</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'success' %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=40) }}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=40) }}
+        </p>
+        <p>
+            {{ form.price.label }}<br>
+            {{ form.price(step=0.01) }}
+        </p>
+        <p>
+            {{ form.image.label }}<br>
+            {{ form.image(size=40) }}
+        </p>
+        <p>
+            <button type="submit" class="fancy-button">
+                Add Pizza
+            </button>
+        </p>
+    </form>
+</body>
+</html>

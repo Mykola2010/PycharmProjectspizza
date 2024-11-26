@@ -1,0 +1,115 @@
+body {
+    background: #2f2f31;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+button.fancy-button {
+    position: relative;
+    color: #cecd24;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+    padding: 0.5em 2em;
+    border: 2px solid #cecd24;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+button.fancy-button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 100%;
+    background: #cecd24;
+    z-index: -1;
+    transition: all 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+button.fancy-button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc(100% - 3em);
+    bottom: 0;
+    right: 3em;
+    background-image: url("https://cdn-icons-png.flaticon.com/128/109/109617.png");
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+button.fancy-button:hover {
+    padding-right: 3.5em;
+}
+
+button.fancy-button:hover::before {
+    right: 0;
+    left: calc(100% - 3em);
+}
+
+button.fancy-button:hover::after {
+    right: 0;
+}
+
+.flash-message.success {
+    color: green;
+    font-weight: bold;
+}
+
+.flash-message.danger {
+    color: red;
+    font-weight: bold;
+}
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.pizza-menu {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pizza-menu img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
